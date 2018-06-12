@@ -1,0 +1,199 @@
+/**index.wxss**/
+@import "../public/login.wxss";
+
+page{
+  background-color: #ffffff;
+}
+.cover_bg{
+  height: 256px;
+  width: 256px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.top_cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 230px;
+  width: 230px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.top_text {
+  display: block;
+  width: 100%;
+  font-size: 21px;
+  margin-top: 11px;
+  text-align: center;
+}
+
+.top_collection_bg {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #a2a2a2;
+}
+
+
+.album {
+  display: flex;
+  flex-direction: column;
+  margin: 13px 10px;
+  margin-right:0;
+}
+
+.album_cover {
+  width: 97px;
+  height: 97px;
+  border-radius: 2px;
+  background-color: #424b50;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.btn_more{
+  width: 97px;
+  height: 97px;
+  border-radius: 2px;
+  background-color: #424b50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right:15px;
+}
+
+
+.album_title {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #424b50;
+  width: 97px;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+button{
+  margin-bottom: 30rpx;
+}
+button:last-child{
+  margin-bottom: 0;
+}
+.page-section-title{
+  padding: 0;
+}
+
+.page-section-title{
+  margin-top: 60rpx;
+  position: relative;
+}
+.info{
+  position: absolute;
+  right: 0;
+  color: #353535;
+  font-size: 30rpx;
+}
+.page-foot{
+  margin-top: 50rpx;
+}
+
+/*轮播图样式  */
+
+.swiper{
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  height: 464rpx;
+}
+.swiper swiper{
+  width: 100%;
+  height: 95%;
+}
+.swiper image{
+  width: 100%;
+}
+
+.index-activity-title{
+  font-size: 35rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #424b50;
+  width: 100%;
+  margin: 0 auto;
+  height: 70rpx;
+  background-color: #f3f8f1;
+  padding: 3rpx 5rpx;
+}
+.index-activity-title-left{
+  margin-left: 30rpx;
+  flex: 1;
+}
+.index-activity-title-right{
+  margin-right: 20rpx;
+}
+
+.index-activity-title image{
+  width:12rpx;
+  height:20rpx;
+  margin-right:10rpx
+}
+.index-activity{
+  margin-top: 15rpx;
+  min-height: 500rpx;
+}
+.index-activity-item{
+    width: 94%;
+    margin: 0 3% 10rpx;
+    background-color: #f3f8f1;
+    padding: 3rpx 5rpx;
+    height: 300rpx;
+    /* border:1px solid; */
+    border-radius:25rpx;
+      display: flex;
+  flex-direction: row;
+}
+
+.index-activity-item-img{
+  height: 100%;
+  width: 230rpx;
+  border-top-left-radius: 25rpx;
+   border-bottom-left-radius: 25rpx;
+}
+.index-activity-item-inner{
+  display:flex;
+  flex-direction:column;
+  margin: 20rpx 35rpx;
+    width: 400rpx;
+
+} 
+.index-activity-item-inner text{
+  margin-bottom: 10rpx;
+    font-size: 28rpx;
+
+}
+.activity-title{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.activity-blod{
+  font-size: 30rpx;
+  font-weight: bold;
+}

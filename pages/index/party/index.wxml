@@ -1,0 +1,40 @@
+<!--index.wxml-->
+
+<view class="container">
+    <view class='index-activity-item'>
+            <text class='activity-title'><text class='activity-blod'>主题：</text>{{activity.title}}</text>
+        <text><text class='activity-blod'>时间：</text>{{activity.timeFormat}}</text>
+        <text><text class='activity-blod'>人数：</text>{{activity.num}}人</text>
+        <text><text class='activity-blod'>地址：</text>{{activity.address}}</text>
+        <view style='display:block'>
+         <map
+        class='index-activity-map'
+        latitude="{{activity.map.latitude}}"
+        longitude="{{activity.map.longitude}}"
+        markers="{{activity.map.markers}}"
+        >
+        
+        </map>
+        </view>
+           
+        <text>{{activity.info}}</text>
+
+    </view>
+    <view class='party-users'>
+    <!-- <view class='party-users-item'>
+       <image src='../../../images/xyjy1.jpg'></image>
+       <text>荼蘼</text>
+    </view> -->
+
+  <block wx:for="{{users}}" wx:key="{{userId}}">
+    <view class='party-users-item' bindtap='goUserDetail' data-index='{{index}}' data-id='{{item.userId}}'>
+       <image src='{{item.head}}' class='party-users-item-head'></image>
+       <text>{{item.nickName}}</text>
+       <image src='{{item.statusUrl}}' class="party-user-status-img"></image>
+        <text class='party-user-status-text'>{{item.statusText}}</text>
+      
+    </view>
+  </block>
+
+    </view>
+</view>

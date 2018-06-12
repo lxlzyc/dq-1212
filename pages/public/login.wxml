@@ -1,0 +1,11 @@
+
+<template name="login">
+
+<view class="mask {{maskshow==0 ? 'display':''}}">
+<view>
+  <!-- <button  bindgetuserinfo='login' open-type='getUserInfo'>点击登录</button> -->
+</view>
+<button  wx:if="true" type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<view wx:else>请升级微信版本</view>
+</view>
+</template>

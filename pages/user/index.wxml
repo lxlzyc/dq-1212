@@ -1,0 +1,71 @@
+<!--pages/user/index.wxml-->
+<view class="container">
+  <view class="userinfo" bindtap='touchAvatar'>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+   <view style='margin-top:18px;'>
+    <view class='weui_cell' bindtap='messageTap'>
+      <image class='icon' src='../../images/me_message.png' />
+      <text class='cell_title' style='margin-left:13px'>全部活动</text>
+      <block wx:if='{{feed_badge>0}}'>
+        <view class='badge' />
+      </block>
+      <image style='width:7px;height:12px;margin-right:15px;' src='../../images/home_arrow.png' />
+    </view>
+    <view class='weui_cell' bindtap='followTap'>
+      <image class='icon' src='../../images/me_follow.png' />
+      <text class='cell_title' style='margin-left:13px'>我的活动</text>
+      <block wx:if='{{favorite_channel_badge>0}}'>
+        <view class='badge' />
+      </block>
+      <image style='width:7px;height:12px;margin-right:15px;' src='../../images/home_arrow.png' />
+    </view>
+    <view class='weui_cell' bindtap='historyTap'>
+      <image class='icon' src='../../images/me_history.png' />
+      <text class='cell_title' style='margin-left:13px'>活动历史</text>
+      <image style='width:7px;height:12px;margin-right:15px;' src='../../images/home_arrow.png' />
+    </view>
+     
+    <view class='weui_cell' bindtap='feedbackTap'>
+      <image class='icon' src='../../images/me_feedback.png' />
+      <text class='cell_title' style='margin-left:13px'>意见反馈</text>
+      <image style='width:7px;height:12px;margin-right:15px;' src='../../images/home_arrow.png' />
+    </view>
+    <view class='weui_cell' bindtap='likedTap'>
+      <image class='icon' src='../../images/me_collect.png' />
+      <text class='cell_title' style='margin-left:13px'>关于我们</text>
+      <image style='width:7px;height:12px;margin-right:15px;' src='../../images/home_arrow.png' />
+    </view> 
+  </view> 
+
+  <view class='modal_mask' catchtouchmove='preventTouchMove' wx:if="{{showModal}}"></view>
+  <view class='modal_dialog' wx:if="{{showModal}}">
+    <text class='modal_title'>绑定手机号</text>
+
+    <input class='modal_input' placeholder='手机号' type='number' placeholder-style='color:#dcdcdc' maxlength='11' bindinput="phoneInput"></input>
+    <view style='margin-top:6px;width:100%;position:relative'>
+      <input class='modal_input' style='margin-top:0;flex:1' type='number' placeholder='验证码' bindinput="codeInput" placeholder-style='color:#dcdcdc'></input>
+      <block wx:if='{{phone.length==11}}'>
+        <view class='btn_code' catchtap='touchCode'>获取验证码</view>
+      </block>
+      <block wx:else>
+        <view class='btn_code_disable'>获取验证码</view>
+      </block>
+    </view>
+
+    <view class='btn_view'>
+      <block wx:if='{{phone.length==11 && code.length>0}}'>
+        <view class='btn_confirm' style='background-color:#1d1d1d' bindtap='onConfirm'>确认</view>
+      </block>
+      <block wx:else>
+        <view class='btn_confirm'>确认</view>
+      </block>
+
+
+    </view>
+    <view class='btn_close' bindtap='onCancel'>
+      <image style='width:16px;height:16px' src='../../images/popup_close.png'></image>
+    </view>
+  </view>
+</view>

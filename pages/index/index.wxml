@@ -1,0 +1,71 @@
+<!--index.wxml-->
+<import src="../public/login.wxml" />
+
+<view style='width:100%;overflow:hidden;height:100%;overflow-y: hidden;'>
+  <template is="login" data="{{maskshow}}"/>
+
+  <view class="swiper">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-view">
+              <image src='{{item}}' />
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+  <view class='index-activity-title'>
+   <text class='index-activity-title-left'>当前活动</text>
+      <text class='index-activity-title-right' bindtap='createActivity'>创建活动</text>
+        <image src='../../images/home_arrow.png'/> 
+  </view>
+
+  <view class='index-activity'>
+
+    <!-- <view class='index-activity-item' bindtap='goActivityDetail' data-id='1' data-type='1'>
+      <image class='index-activity-item-img' src='../../images/xyjy1.jpg'></image>
+      <view class='index-activity-item-inner'>
+        <text class='activity-title'><text class='activity-blod'>主题：</text>李贺请客</text>
+        <text class='activity-time'><text class='activity-blod'>时间：</text>2018-05-17 19:16</text>
+        <text class='activity-num'><text class='activity-blod'>人数：</text>9人</text>
+        <text class='activity-address'><text class='activity-blod'>地址：</text>屯佃村</text>
+        <text class='activity-info'>因为贺贺入职华为所以请客大家一起喝酒</text>
+      </view>
+    </view> -->
+  <block wx:for="{{activities}}" wx:key="{{acId}}">
+    <view class='index-activity-item' bindtap='goActivityDetail' data-index='{{index}}' data-id='{{item.acId}}' data-type='{{item.type}}'>
+      <image class='index-activity-item-img' src='../../images/xyjy1.jpg'></image>
+      <view class='index-activity-item-inner'>
+        <text class='activity-title'><text class='activity-blod'>主题：</text>{{item.title}}</text>
+        <text><text class='activity-blod'>时间：</text>{{item.timeFormat}}</text>
+        <text><text class='activity-blod'>人数：</text>{{item.num}}人</text>
+        <text><text class='activity-blod'>地址：</text>{{item.address}}</text>
+        <text>{{item.info}}</text>
+      </view>
+    </view>
+  </block>
+<!-- <block wx:for="{{channels}}" wx:key="{{id}}">
+        <view class='album' data-index='{{index}}' bindtap='recommendChannelDetail'>
+          <view class='album_cover' style="background-image:url({{item.cover.url}});background-size: cover;">
+            <image class='shadow_top' src='../../images/home_shadow_top.png' />
+            <view style='display:flex;flex-direction:row;margin-right:6px;margin-top:3px;height:12px;align-items:center;justify-content:center;'>
+              <image style='width:12px;height:12px;margin-right:2px;' src='../../images/home_listen.png' />
+              <text class='listener'>{{item.count_play}}</text>
+            </view>
+
+          </view>
+          <text class='album_title'>{{item.name}}</text>
+        </view>
+      </block> -->
+
+
+    <!-- <view class='index-activity-item'>喝酒</view>
+    <view class='index-activity-item'>麻将</view> -->
+
+  </view>
+
+
+</view>

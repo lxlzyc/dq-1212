@@ -1,0 +1,89 @@
+<!--index.wxml-->
+
+<view class="activity-form">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class='form-title'>
+        请填写以下信息创建新活动
+      </view>
+      <view class="form-item">
+        <view class="form-item-title">活动类型</view>
+          <view class="form-item-body">
+            <radio-group name="type">
+              <label>
+                <radio value="1" checked='true'/>聚会
+              </label>
+            </radio-group>
+          </view>
+      </view>
+
+      <view class="form-item">
+        <view class="form-item-title">主题</view>
+          <view class="form-item-body">
+              <input name="title" placeholder="请输入主题 12字以内" maxlength='12'/>
+        </view>
+      </view>
+
+      <view class="form-item">
+        <view class="form-item-title">地址</view>
+          <view class="form-item-body">
+              <input name="address" placeholder="请输入地址 30字以内" maxlength='30'/>
+        </view>
+      </view>
+     <view class="form-item">
+        <view class="form-item-title">地图</view>
+          <view class="form-item-body">
+              <input name="mapAddress" placeholder="选择位置" value="{{mapAddress}}" 
+              maxlength='30' bindtap='getMapInfo'  disabled='true'/>
+        </view>
+      </view>
+        <view class="form-item">
+          <view class="form-item-title">日期</view>
+          <view class="form-item-body">
+           <picker mode="date" name="activityDate" value="{{date}}" start="{{begindate}}"
+            end="2101-01-01" bindchange="bindDateChange">
+            <view class="picker" >
+              {{date}}
+            </view>
+          </picker>
+          </view>
+        </view>
+     <view class="form-item">
+          <view class="form-item-title">时间</view>
+          <view class="form-item-body">
+          <picker mode="time" name="activityTime" value="{{time}}" bindchange="bindTimeChange">
+            <view class="picker" >
+              {{time}}
+            </view>
+          </picker>
+          </view>
+        </view>
+
+    <view class="form-item">
+        <view class="form-item-title">活动信息</view>
+          <view class="form-item-body">
+              <textarea name="info" placeholder="请输入活动简介信息 60字以内" maxlength='60'></textarea>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-title">邀请好友</view>
+          <view class="form-item-body">
+            
+            <view class='form-users-item' wx:for="{{users}}" wx:key="{{item.userId}}">
+              <image src='{{item.head}}'  class='form-users-item-head'></image>
+              <text>{{item.nickName}}</text>
+              <image src='../../../images/popup_close.png' bindtap='removeUser'
+              data-id='{{item.userId}}' class='form-users-item-del'></image>
+            </view>
+            
+             <view class='form-users-item' bindtap="addUser">
+              <image src='../../../images/plus.png'  class='form-users-item-head'></image>
+              <text>添加好友</text>
+            </view>
+        </view>
+      </view>
+  <view class="form-btn">
+    <button class="form-btn-sub" type="primary" formType="submit" >创建活动</button>
+    <button class="form-btn-ret" type="default" formType="reset">重置</button>
+  </view>
+</form>
+</view>
